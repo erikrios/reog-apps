@@ -1,4 +1,4 @@
-package io.erikrios.github.reogapps
+package io.erikrios.github.reogapps.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
