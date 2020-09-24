@@ -26,15 +26,15 @@ fun Activity.showToast(
     when (state) {
         ToastState.SUCCESS -> {
             imageResource = R.drawable.ic_baseline_done_24
-            cardBackgroundColor = ContextCompat.getColor(this, android.R.color.holo_green_dark)
+            cardBackgroundColor = ContextCompat.getColor(this, android.R.color.holo_green_light)
         }
         ToastState.INFO -> {
             imageResource = R.drawable.ic_baseline_error_outline_24
-            cardBackgroundColor = ContextCompat.getColor(this, android.R.color.holo_blue_dark)
+            cardBackgroundColor = ContextCompat.getColor(this, android.R.color.holo_blue_light)
         }
         ToastState.ERROR -> {
             imageResource = R.drawable.ic_baseline_close_24
-            cardBackgroundColor = ContextCompat.getColor(this, android.R.color.holo_red_dark)
+            cardBackgroundColor = ContextCompat.getColor(this, android.R.color.holo_red_light)
         }
     }
 
