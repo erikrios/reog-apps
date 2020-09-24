@@ -1,6 +1,7 @@
 package io.erikrios.github.reogapps.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -9,6 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import io.erikrios.github.reogapps.R
 import io.erikrios.github.reogapps.databinding.ActivityMainBinding
+import io.erikrios.github.reogapps.utils.ToastState
+import io.erikrios.github.reogapps.utils.showToast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -30,16 +33,36 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_saved_articles -> {
-
+                Log.d("tes", item.title.toString())
+                showToast(
+                    item.title.toString(),
+                    ToastState.SUCCESS,
+                    Toast.LENGTH_SHORT
+                )
             }
             R.id.item_login -> {
-                Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
+                Log.d("tes", item.title.toString())
+                showToast(
+                    item.title.toString(),
+                    ToastState.INFO,
+                    Toast.LENGTH_SHORT
+                )
             }
             R.id.item_my_profile -> {
-                Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
+                Log.d("tes", item.title.toString())
+                showToast(
+                    item.title.toString(),
+                    ToastState.ERROR,
+                    Toast.LENGTH_SHORT
+                )
             }
             R.id.item_log_out -> {
-                Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
+                Log.d("tes", item.title.toString())
+                showToast(
+                    item.title.toString(),
+                    ToastState.SUCCESS,
+                    Toast.LENGTH_SHORT
+                )
             }
         }
         return super.onOptionsItemSelected(item)

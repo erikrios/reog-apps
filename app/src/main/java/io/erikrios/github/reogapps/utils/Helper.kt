@@ -1,9 +1,8 @@
 package io.erikrios.github.reogapps.utils
 
 import android.app.Activity
-import android.view.LayoutInflater
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import io.erikrios.github.reogapps.R
 import io.erikrios.github.reogapps.databinding.ToastIconTextBinding
 
@@ -11,12 +10,15 @@ enum class ToastState {
     SUCCESS, INFO, ERROR
 }
 
-fun Activity.showToast(text: String, viewGroup: ViewGroup, state: ToastState, duration: Int) {
-    val toast = Toast(this)
-    toast.duration = duration
+fun Activity.showToast(
+    text: String,
+    state: ToastState,
+    duration: Int
+) {
+    val binding = ToastIconTextBinding.inflate(layoutInflater)
 
-    // Inflate view
-    val binding = ToastIconTextBinding.inflate(LayoutInflater.from(this), viewGroup, true)
+    val toast = Toast(applicationContext)
+    toast.duration = duration
 
     val imageResource: Int
     val cardBackgroundColor: Int
@@ -24,23 +26,21 @@ fun Activity.showToast(text: String, viewGroup: ViewGroup, state: ToastState, du
     when (state) {
         ToastState.SUCCESS -> {
             imageResource = R.drawable.ic_baseline_done_24
-            cardBackgroundColor = android.R.color.holo_green_dark
+            cardBackgroundColor = ContextCompat.getColor(this, android.R.color.holo_green_dark)
         }
         ToastState.INFO -> {
             imageResource = R.drawable.ic_baseline_error_outline_24
-            cardBackgroundColor = android.R.color.holo_blue_dark
+            cardBackgroundColor = ContextCompat.getColor(this, android.R.color.holo_blue_dark)
         }
         ToastState.ERROR -> {
             imageResource = R.drawable.ic_baseline_close_24
-            cardBackgroundColor = android.R.color.holo_red_dark
+            cardBackgroundColor = ContextCompat.getColor(this, android.R.color.holo_red_dark)
         }
     }
 
-    binding.apply {
-        tvMessage.text = text
-        imgIcon.setImageResource(imageResource)
-        cardParent.setCardBackgroundColor(cardBackgroundColor)
-    }
+    binding.tvMessage.text = text
+    binding.imgIcon.setImageResource(imageResource)
+    binding.cardParent.setCardBackgroundColor(cardBackgroundColor)
 
     toast.view = binding.root
     toast.show()
