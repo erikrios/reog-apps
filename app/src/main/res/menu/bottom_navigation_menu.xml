@@ -7,9 +7,9 @@
     <item
         android:id="@+id/historyFragment"
         android:icon="@drawable/ic_baseline_history_24"
-        android:title="@string/explore" />
+        android:title="@string/history" />
     <item
         android:id="@+id/wallpaperFragment"
         android:icon="@drawable/ic_baseline_wallpaper_24"
-        android:title="@string/explore" />
+        android:title="@string/wallpaper" />
 </menu>
