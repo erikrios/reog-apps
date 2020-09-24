@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_saved_articles -> {
-                Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()
+
             }
             R.id.item_login -> {
                 Toast.makeText(this, item.title, Toast.LENGTH_SHORT).show()

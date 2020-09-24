@@ -11,7 +11,7 @@ enum class ToastState {
     SUCCESS, INFO, ERROR
 }
 
-fun Activity.showErrorToast(text: String, viewGroup: ViewGroup, state: ToastState, duration: Int) {
+fun Activity.showToast(text: String, viewGroup: ViewGroup, state: ToastState, duration: Int) {
     val toast = Toast(this)
     toast.duration = duration
 
