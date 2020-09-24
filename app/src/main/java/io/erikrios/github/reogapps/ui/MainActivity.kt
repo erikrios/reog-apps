@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.bottomNavigationView.setupWithNavController(reogNavHostFragment.findNavController())
-        setToolbarTitle()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -44,25 +43,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    private fun setToolbarTitle() {
-        binding.bottomNavigationView.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.exploreFragment -> {
-                    supportActionBar?.title = getString(R.string.explore)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.historyFragment -> {
-                    supportActionBar?.title = getString(R.string.history)
-                    return@setOnNavigationItemSelectedListener true
-                }
-                R.id.wallpaperFragment -> {
-                    supportActionBar?.title = getString(R.string.wallpaper)
-                    return@setOnNavigationItemSelectedListener true
-                }
-            }
-            return@setOnNavigationItemSelectedListener false
-        }
     }
 }
