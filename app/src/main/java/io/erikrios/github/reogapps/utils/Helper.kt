@@ -18,8 +18,8 @@ fun Activity.showErrorToast(text: String, viewGroup: ViewGroup, state: ToastStat
     // Inflate view
     val binding = ToastIconTextBinding.inflate(LayoutInflater.from(this), viewGroup, true)
 
-    var imageResource: Int
-    var cardBackgroundColor: Int
+    val imageResource: Int
+    val cardBackgroundColor: Int
 
     when (state) {
         ToastState.SUCCESS -> {
@@ -39,6 +39,9 @@ fun Activity.showErrorToast(text: String, viewGroup: ViewGroup, state: ToastStat
     binding.apply {
         tvMessage.text = text
         imgIcon.setImageResource(imageResource)
-
+        cardParent.setCardBackgroundColor(cardBackgroundColor)
     }
+
+    toast.view = binding.root
+    toast.show()
 }
