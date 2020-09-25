@@ -22,8 +22,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.bottomNavigationView.setupWithNavController(reogNavHostFragment.findNavController())
-
-        setActionBarElevation()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -65,9 +63,12 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setActionBarElevation() {
-        val navigationFragmentId = reogNavHostFragment.findNavController().currentDestination?.id
-        if (navigationFragmentId == R.id.exploreFragment) supportActionBar?.elevation = 0F
+    fun setActionBarElevation() {
+        val navController = reogNavHostFragment.findNavController()
+        val currentDestination = navController.currentDestination?.id
+        val startDestination = navController.graph.startDestination
+
+        if (currentDestination == startDestination) supportActionBar?.elevation = 0F
         else supportActionBar?.elevation = 8F
     }
 }

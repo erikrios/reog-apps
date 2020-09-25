@@ -9,6 +9,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import io.erikrios.github.reogapps.R
 import io.erikrios.github.reogapps.adapters.ExplorePagerAdapter
 import io.erikrios.github.reogapps.databinding.FragmentExploreBinding
+import io.erikrios.github.reogapps.ui.MainActivity
 
 class ExploreFragment : Fragment() {
 
@@ -45,7 +46,11 @@ class ExploreFragment : Fragment() {
                 }
             }
         }
+    }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).setActionBarElevation()
     }
 
     override fun onDestroyView() {

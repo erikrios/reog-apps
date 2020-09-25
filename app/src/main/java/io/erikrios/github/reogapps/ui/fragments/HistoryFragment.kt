@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import io.erikrios.github.reogapps.databinding.FragmentHistoryBinding
+import io.erikrios.github.reogapps.ui.MainActivity
 
 class HistoryFragment : Fragment() {
 
@@ -20,6 +21,11 @@ class HistoryFragment : Fragment() {
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
 
         return binding?.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).setActionBarElevation()
     }
 
     override fun onDestroyView() {
