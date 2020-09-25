@@ -21,4 +21,6 @@
     <string name="my_profile">My Profile</string>
     <string name="log_out">Log Out</string>
     <string name="news">News</string>
+    <string name="sites">Sites</string>
+    <string name="foods">Foods</string>
 </resources>
