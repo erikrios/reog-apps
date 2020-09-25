@@ -1,7 +1,6 @@
 package io.erikrios.github.reogapps.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -23,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.bottomNavigationView.setupWithNavController(reogNavHostFragment.findNavController())
+
+        setActionBarElevation()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -33,7 +34,6 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_saved_articles -> {
-                Log.d("tes", item.title.toString())
                 showToast(
                     item.title.toString(),
                     ToastState.SUCCESS,
@@ -41,7 +41,6 @@ class MainActivity : AppCompatActivity() {
                 )
             }
             R.id.item_login -> {
-                Log.d("tes", item.title.toString())
                 showToast(
                     item.title.toString(),
                     ToastState.INFO,
@@ -49,7 +48,6 @@ class MainActivity : AppCompatActivity() {
                 )
             }
             R.id.item_my_profile -> {
-                Log.d("tes", item.title.toString())
                 showToast(
                     item.title.toString(),
                     ToastState.ERROR,
@@ -57,7 +55,6 @@ class MainActivity : AppCompatActivity() {
                 )
             }
             R.id.item_log_out -> {
-                Log.d("tes", item.title.toString())
                 showToast(
                     item.title.toString(),
                     ToastState.SUCCESS,
@@ -66,5 +63,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun setActionBarElevation() {
+        val navigationFragmentId = reogNavHostFragment.findNavController().currentDestination?.id
+        if (navigationFragmentId == R.id.exploreFragment) supportActionBar?.elevation = 0F
+        else supportActionBar?.elevation = 8F
     }
 }
