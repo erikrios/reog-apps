@@ -8,6 +8,7 @@
         android:id="@+id/tab_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:elevation="8dp"
         app:layout_constraintBottom_toTopOf="@id/view_pager_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
