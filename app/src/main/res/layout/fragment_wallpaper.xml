@@ -11,6 +11,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Wallpaper" />
+        android:text="@string/wallpaper" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
